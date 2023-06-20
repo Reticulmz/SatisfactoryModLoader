@@ -40,9 +40,9 @@ jobs:
       - name: Build SML
         run: |
           .\\ue4\\lb\\win\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe  -projectfiles -project="$Env:GITHUB_WORKSPACE\\SML\\FactoryGame.uproject" -game -rocket -progres
-          MSBuild.exe .\\SML\\FactoryGame.sln /p:Configuration="Shipping" /p:Platform="Win64" /t:"Games\FactoryGame"
-          MSBuild.exe .\\SML\\FactoryGame.sln /p:Configuration="Development Editor" /p:Platform="Win64" /t:"Games\FactoryGame"
-          .\\ue4\\lb\\win\\Engine\\Build\\BatchFiles\\RunUAT.bat -Compile -ScriptsForProject="$Env:GITHUB_WORKSPACE\\SML\\FactoryGame.uproject" PackagePlugin -Project="$Env:GITHUB_WORKSPACE\\SML\\FactoryGame.uproject" -PluginName="SML" -PluginTarget="Win64" -MergeArchive
+          MSBuild.exe .\\SML\\FactoryGame.sln /p:Configuration="Shipping Server" /p:Platform="Linux" /t:"Games\FactoryGame"
+          MSBuild.exe .\\SML\\FactoryGame.sln /p:Configuration="Development Server" /p:Platform="Linux" /t:"Games\FactoryGame"
+          .\\ue4\\lb\\win\\Engine\\Build\\BatchFiles\\RunUAT.bat -Compile -ScriptsForProject="$Env:GITHUB_WORKSPACE\\SML\\FactoryGame.uproject" PackagePlugin -Project="$Env:GITHUB_WORKSPACE\\SML\\FactoryGame.uproject" -PluginName="SML" -PluginTarget="Linux" -MergeArchive
 
       - name: Archive SML artifact
         uses: actions/upload-artifact@v2
